@@ -1,0 +1,37 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card title="Quiz Application">
+        <div class="slds-m-bottom_medium">
+          <template if:true={isSubmitted}>
+            <div class={scoredFull}>You scored {correctAnswers} out of {myQuestions.length}</div>
+          </template>
+          <form>
+            <template for:each={myQuestions} for:item="quiz">
+                <div key={quiz.id}>
+                    <div><strong>{quiz.id}- {quiz.question}</strong></div>    
+                    <div class="slds-m-bottom_medium">
+                        <div class="slds-col">
+                          <input type="radio" name={quiz.id} value="a" onchange={changeHandler}/>
+                           {quiz.answers.a}
+                        </div>
+                        <div class="slds-col">
+                          <input type="radio" name={quiz.id} value="b" onchange={changeHandler}/>
+                           {quiz.answers.b}
+                        </div>
+                        <div class="slds-col">
+                          <input type="radio" name={quiz.id} value="c" onchange={changeHandler}/>
+                           {quiz.answers.c}
+                        </div>
+                        <div class="slds-col">
+                          <input type="radio" name={quiz.id} value="d" onchange={changeHandler}/>
+                           {quiz.answers.d}
+                          </div>
+                      </div>      
+                 </div>
+            </template>
+            <lightning-button variant="destructive" label="reset" title="Destructive action" onclick={resetHandler} class="slds-m-around_medium"></lightning-button>
+            <lightning-button variant="success" label="Submit" disabled={notAllSelected} title="Successful action" onclick={submitHandler} class="slds-m-left_x-small"></lightning-button>
+          </form>
+        </div>
+    </lightning-card>
+</template>

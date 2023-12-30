@@ -1,10 +1,7 @@
 <!-- sldsValidatorIgnore -->
 <template>
-    <lightning-card title="Quiz Application">
+    <lightning-card title="-Quiz Application-">
         <div class="slds-m-bottom_medium">
-          <template if:true={isSubmitted}>
-            <div class={scoredFull}>You scored {correctAnswers} out of {myQuestions.length}</div>
-          </template>
           <form>
             <template for:each={myQuestions} for:item="quiz">
                 <div key={quiz.id}>
@@ -29,9 +26,12 @@
                       </div>      
                  </div>
             </template>
-            <lightning-button variant="destructive" label="reset" title="Destructive action" onclick={resetHandler} class="slds-m-around_medium"></lightning-button>
-            <lightning-button variant="success" label="Submit" disabled={notAllSelected} title="Successful action" onclick={submitHandler} class="slds-m-left_x-small"></lightning-button>
+            <lightning-button variant="brand" label="reset" title="Destructive action" onclick={resetHandler} class="slds-m-around_medium"></lightning-button>
+            <lightning-button variant="brand" label="Submit" disabled={notAllSelected} title="Successful action" onclick={submitHandler} class="slds-m-left_x-small"></lightning-button>
           </form>
+          <template if:true={isSubmitted}>
+            <div class={scoredFull}>You scored {correctAnswers} out of {myQuestions.length}</div>
+          </template>
         </div>
     </lightning-card>
 </template>

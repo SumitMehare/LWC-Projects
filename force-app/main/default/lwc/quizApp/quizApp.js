@@ -20,7 +20,7 @@ export default class QuizApp extends LightningElement {
         id:"Question 2:",
         question:"Which is not Object of Sales cloud?",
         answers:{
-            a:"Peaple",
+            a:"People",
             b:"Case",
             c:"Opportunity",
             d:"Contact"
@@ -54,14 +54,14 @@ export default class QuizApp extends LightningElement {
         this.correctAnswers = correct.length
         console.log('correct answers'+ this.correctAnswers)
         this.isSubmitted = true
-        alert('Quiz Submitted')
     }
     get scoredFull(){
-        return 'slds-text-heading_large ${this.myQuestions.length ===this.correctAnswers?
-        'slds-text-color_success':'slds-text-color_error'}'
+        return `slds-text-heading_large ${this.myQuestions.length === this.correctAnswers?
+        'slds-text-color_success':'slds-text-color_error'}`
     }
     resetHandler(){
-        this.selected = {}
+        this.selected ={}
         this.correctAnswers = 0
+        this.isSubmitted = false
     }
 }
